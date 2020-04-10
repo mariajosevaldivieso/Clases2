@@ -1,7 +1,7 @@
 ---
 title: "Ayudantía 03"
 author: "Martín Sielfeld"
-date: "29-03-2020"
+date: "29-03-2020".
 output: html_document
 params:
   month: 1
