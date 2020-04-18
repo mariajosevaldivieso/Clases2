@@ -13,7 +13,6 @@ library(readxl)
 library(data.table)
 
 
-
 casos<-data.table(read_excel("Class_02/2020-03-17-Casos-confirmados.xlsx",na = "—",trim_ws = TRUE,col_names = TRUE),stringsAsFactors = FALSE)
 
 names(casos)
@@ -28,7 +27,6 @@ writexl::write_xlsx(casos,path = "Class_03/CasosenExcel.xlsx")
 library(foreign)
 
 #write.dta
-
 
 
 casosRM<-fread("Class_03/CasosCovid_RM.csv",header = T, showProgress = T,data.table = T)
@@ -83,8 +81,6 @@ dim(D)
 
 
 AB<-merge(A,B,by = "Centro de salud",all = T,sort = F)
-
-
 ABC<-merge(AB,C,by = "Centro de salud",all = T,sort = F)
 ABCD<-merge(ABC,D,by = "Centro de salud",all = T,sort = F)
 
@@ -110,6 +106,7 @@ library(ggplot2)
 
 names (E)
 ggplot(data = E, mapping = aes(x = AvAge, y = `Casos confirmados`))  + geom_point() 
+
 # geom_point hace que en el grafico me aparezcan los puntos
 
 ggplot(data = G,mapping = aes(x=`Casos confirmados.Femenino`,y=`Casos confirmados.Masculino`)) + geom_point()
@@ -122,7 +119,7 @@ ggplot(data = E,mapping = aes(x=AvAge,y=`Casos confirmados`))+geom_point()+facet
 
 
 #plotly
-install.packages('plotly')
+#install.packages('plotly')
 library(plotly)
 
 ggplotly(p1)
@@ -134,7 +131,7 @@ ggplot(casos,aes(x=Edad))+geom_histogram()
 ggplot(E,aes(x=AvAge))+geom_histogram()
 
 # Kernel Densities
-# cuando queir dibujar una linea sobre un histograma
+# cuando quiero dibujar una linea sobre un histograma
 
 ggplot(E,aes(x=AvAge))+geom_density()
 ggplot(E,aes(x=AvAge,group=Sexo))+geom_density()
@@ -159,9 +156,9 @@ ggplot(casos,aes(x=Edad,group=Sexo,fill=Sexo))+geom_histogram()
 #https://chilecracia.org 
 
 #---- Part 3: Intro to Mapping  -------------------
-install.packages("chilemapas")
-install.packages("rgdal")
-install.packages("sf")
+#install.packages("chilemapas")
+#install.packages("rgdal")
+#install.packages("sf")
 library(sf)
 library(rgdal)
 library(sp)
@@ -177,7 +174,7 @@ comunas_rm<-readOGR("Class_04/ComunasR13/COMUNA_C17.shp")
 class(comunas_rm)
 
 View(comunas_rm@data)
-plot(comunas_rm) # me grea un mapa
+plot(comunas_rm) # me crea un mapa
 
 coordinates(comunas_rm) # si le pongo un mapa poligono, me da el centro medio de cada poligono
 
